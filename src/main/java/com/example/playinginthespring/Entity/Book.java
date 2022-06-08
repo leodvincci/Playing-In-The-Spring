@@ -1,8 +1,17 @@
-package Entity;
+package com.example.playinginthespring.Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
 
-    String title,author,publisher;
+
+    @Id
+    String isbn;
+    String title;
+    String author;
+    String publisher;
     int yearOfPublishing;
 
     public Book() {
