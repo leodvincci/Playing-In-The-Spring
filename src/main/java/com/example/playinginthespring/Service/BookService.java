@@ -19,4 +19,9 @@ public class BookService {
         return bookRepo.findAll();
     }
 
+    public void addBook(Book book){
+        bookRepo.save(book);
+        System.out.println("Saved: " + book);
+    }
+
 }
