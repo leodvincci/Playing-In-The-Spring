@@ -1,4 +1,4 @@
-package Entity;
+package com.example.playinginthespring.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
