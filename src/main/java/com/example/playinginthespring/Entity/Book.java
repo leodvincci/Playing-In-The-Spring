@@ -1,6 +1,8 @@
 package com.example.playinginthespring.Entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -8,7 +10,8 @@ public class Book {
 
 
     @Id
-    String isbn;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    Integer bookId;
     String title;
     String author;
     String publisher;
@@ -18,7 +21,8 @@ public class Book {
 
     }
 
-    public Book(String title, String author, String publisher, int yearOfPublishing) {
+    public Book(Integer isbn, String title, String author, String publisher, int yearOfPublishing) {
+        this.bookId = isbn;
         this.title = title;
         this.author = author;
         this.publisher = publisher;
@@ -31,6 +35,17 @@ public class Book {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", yearOfPublishing=" + yearOfPublishing +
+                '}';
     }
 
     public String getAuthor() {

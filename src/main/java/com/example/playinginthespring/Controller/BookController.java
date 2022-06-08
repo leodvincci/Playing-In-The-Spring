@@ -3,6 +3,8 @@ package com.example.playinginthespring.Controller;
 import com.example.playinginthespring.Entity.Book;
 import com.example.playinginthespring.Service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,5 +23,9 @@ public class BookController {
         return bookService.getBooks();
     }
 
+    @PostMapping("/add")
+    public void add(@RequestBody Book book){
+        bookService.addBook(book);
+    }
 
 }
